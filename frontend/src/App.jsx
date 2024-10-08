@@ -103,28 +103,28 @@ else
   return (
     <>
      <div className='m-4'>
-      <form className='w-full border border-green-600 flex justify-between' action="" onSubmit={(e)=>{handleSubmit(e)}}>
-        <input type="text" name='name' placeholder='Enter Name...' />
-        <input type="text" name='email' placeholder='Enter Email...' />
-        <input type="text" name='password' placeholder='Enter Password...' />
-        <button type='submit'>Submit</button>
+      <form className='w-full flex justify-between' action="" onSubmit={(e)=>{handleSubmit(e)}}>
+        <input className='w-[26%] bg-gray-100 px-2 rounded-md' type="text" name='name' placeholder='Enter Name...' />
+        <input className='w-[26%] bg-gray-100 px-2 rounded-md' type="text" name='email' placeholder='Enter Email...' />
+        <input className='w-[26%] bg-gray-100 px-2 rounded-md' type="text" name='password' placeholder='Enter Password...' />
+        <button className='w-[10%] bg-gray-100 rounded-md' type='submit'>Submit</button>
       </form>
      </div>
 
-     <div className='flex flex-col gap-4 border border-black justify-center items-center'>
+     <div className='flex flex-col gap-4 border border-black justify-center items-center p-4 m-4'>
      {
      users && users.map((user, i)=>{
         return updateId==user._id? 
-        <div key={i} className='m-4'>
-        <form className='w-full border border-green-600 flex justify-between' action="" onSubmit={(e)=>{handleUpdate(e)}}>
-          <input type="text" name='name' placeholder='Enter Name...' defaultValue={user.name} />
-          <input type="text" name='email' placeholder='Enter Email...' defaultValue={user.email}/>
-          <input type="text" name='password' placeholder='Enter Password...' defaultValue={user.password}/>
+        <div key={i} className='m-4 w-full'>
+        <form className='w-full flex justify-between' action="" onSubmit={(e)=>{handleUpdate(e)}}>
+          <input className='w-[26%] bg-gray-100 px-2 rounded-md' type="text" name='name' placeholder='Enter Name...' defaultValue={user.name} />
+          <input className='w-[26%] bg-gray-100 px-2 rounded-md' type="text" name='email' placeholder='Enter Email...' defaultValue={user.email}/>
+          <input className='w-[26%] bg-gray-100 px-2 rounded-md' type="text" name='password' placeholder='Enter Password...' defaultValue={user.password}/>
           <button type='submit'>Submit</button>
         </form>
        </div>
         : 
-        <div key={i} className='border border-black w-full flex justify-between'> <h6>{user.name}</h6> <h6>{user.email}</h6> <h6 >{user._id} </h6> <button onClick={()=>{deleteUser(user._id)}}>Delete</button>  <button onClick={()=>{setUpdateId(user._id)}}>Update</button> </div>
+        <div key={i} className='border border-black w-full flex justify-between p-2'> <h6 className='bg-gray-50 w-[20%] px-2'>{user.name}</h6> <h6 className='bg-gray-50 w-[20%] px-2'>{user.email}</h6> <h6 className='bg-gray-50 w-[10%] px-2'>{user.password}</h6> <h6 className='bg-gray-50 w-[20%] px-2' >{user._id} </h6>  <button className='bg-gray-50 text-red-600 rounded-md px-3' onClick={()=>{deleteUser(user._id)}}>Delete</button>  <button className='bg-gray-50 text-green-500 rounded-md px-3' onClick={()=>{setUpdateId(user._id)}}>Update</button> </div>
       })
      }
      </div>
