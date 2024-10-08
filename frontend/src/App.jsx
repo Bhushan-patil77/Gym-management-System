@@ -14,7 +14,7 @@ function App() {
 
 
   const deleteUser = (id) =>{
-    fetch('http://localhost:3001/deleteUser', {method:'delete', headers:{ 'Content-Type': 'application/json'},  body: JSON.stringify({ _id: id })})
+    fetch('https://gym-management-system-pink.vercel.app/deleteUser', {method:'delete', headers:{ 'Content-Type': 'application/json'},  body: JSON.stringify({ _id: id })})
     .then((response)=>{return response.json()})
     .then((data)=>{console.log(data)})
     .catch((err)=>{console.log(err)})
@@ -22,7 +22,7 @@ function App() {
   }
  
   const getUsers = () =>{
-    fetch('http://localhost:3001/getUsers')
+    fetch('https://gym-management-system-pink.vercel.app/getUsers')
     .then((response)=>{return response.json()})
     .then((data)=>{ setUsers(data)})
     .catch((err)=>{console.log(err)})
@@ -49,7 +49,7 @@ function App() {
     })
    
 if(flag){
-   fetch('http://localhost:3001/createUser', {method:'post', headers:{'Content-Type':'application/json'},  body: JSON.stringify(data)})
+   fetch('https://gym-management-system-pink.vercel.app/createUser', {method:'post', headers:{'Content-Type':'application/json'},  body: JSON.stringify(data)})
    .then((response)=>{return response.json()})
    .then((data)=>{console.log(data)})
    .catch((error)=>{console.log(error)})
@@ -85,7 +85,7 @@ else
     })
    
 if(flag){
-   fetch('http://localhost:3001/updateUser', {method:'PUT', headers:{'Content-Type':'application/json'},  body: JSON.stringify(data)})
+   fetch('https://gym-management-system-pink.vercel.app/updateUser', {method:'PUT', headers:{'Content-Type':'application/json'},  body: JSON.stringify(data)})
    .then((response)=>{return response.json()})
    .then((data)=>{data.modifiedCount===1 && data.acknowledged==true ? setUpdateId(''): ''})
    .catch((error)=>{console.log(error)})
